@@ -1,8 +1,13 @@
 <template>
   <div>
     <h4>TODOLIST DEMO</h4>
+
+    <h5>
+      Error message:
+      {{ message }}
+    </h5>
     <br>
-    <input placeholder="Input something" type="text" v-model="todoSomething">
+    <input @change="changeSomeThing" placeholder="Input something" type="text" v-model="todoSomething">
     
     <button @click="changeTodoList">Push Todo List</button>
 
@@ -22,7 +27,9 @@ export default {
   data() {
     return {
       todoSomething: '',
-      todoList: []
+      todoList: [],
+
+      message: ''
     }
   },
 
@@ -47,18 +54,20 @@ export default {
   },
 
   methods: {
+    changeSomeThing() {
+      this.message = ''
+    },
+
     changeTodoList() {
       // 验证必填
       if (!this.todoSomething) {
-        alert('好像没有任何要做的事情')
-
+        this.message = '好像没有任何要做的事情'
         return
       }
 
       // 验证重复项
       if (this.todoList.indexOf(this.todoSomething) !== -1) {
-        alert('重复了, 再仔细看看')
-
+        this.message = '重复了, 再仔细看看'
         return
       }
 

@@ -4,7 +4,11 @@
 
 > 这是一个 Nuxt.js 框架的 todolist 应用
 
-> [主要代码](./pages/index.vue)
+> [代码示例](./pages/index.vue)
+
+## Demo
+
+![示例](./assets/Demo.gif)
 
 ## Build Setup
 
